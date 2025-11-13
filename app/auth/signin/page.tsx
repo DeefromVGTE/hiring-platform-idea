@@ -44,16 +44,7 @@ export default function SignIn() {
               Sign in with Google
             </Button>
 
-            <Button
-              onClick={() => signIn('linkedin', { callbackUrl: '/dashboard' })}
-              variant="outline"
-              className="w-full"
-            >
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.81 0-9.728h3.554v1.375c.427-.659 1.191-1.597 2.898-1.597 2.117 0 3.704 1.385 3.704 4.362v5.588zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.712 0-.956.77-1.71 1.864-1.71 1.094 0 1.913.754 1.938 1.71 0 .953-.769 1.712-1.887 1.712zm1.612 11.597H3.715V9.724h3.234v10.728zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-              </svg>
-              Sign in with LinkedIn
-            </Button>
+
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
