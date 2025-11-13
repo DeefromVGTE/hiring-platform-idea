@@ -8,7 +8,7 @@ Before deploying, ensure you have:
 2. **Vercel Account** - for hosting
 3. **Supabase Account** - for backend database
 4. **Google OAuth Credentials** - for authentication
-5. **LinkedIn Developer Account** (optional) - for LinkedIn OAuth
+5. **LinkedIn Developer Account** - for LinkedIn OAuth
 
 ---
 
@@ -120,6 +120,27 @@ CREATE TABLE progress (
 
 ---
 
+## Step 3.5: Set Up LinkedIn OAuth
+
+### Create LinkedIn OAuth Credentials
+
+1. Go to [LinkedIn Developer Portal](https://www.linkedin.com/developers/apps)
+2. Click "Create app"
+3. Fill in app details:
+   - **App name**: Onboard.AI
+   - **LinkedIn Page**: Select or create your company page
+   - **App logo**: Upload a logo
+   - **Legal agreement**: Accept and continue
+4. Once created, go to "Auth" tab
+5. Add authorized redirect URIs:
+   - `http://localhost:3000/api/auth/callback/linkedin` (for local development)
+   - `https://your-vercel-domain.vercel.app/api/auth/callback/linkedin` (for production)
+6. Go to "Credentials" tab and copy:
+   - **Client ID** → `NEXT_PUBLIC_LINKEDIN_CLIENT_ID`
+   - **Client Secret** → `LINKEDIN_CLIENT_SECRET`
+
+---
+
 ## Step 4: Deploy to Vercel
 
 ### Connect Vercel to GitHub
@@ -142,6 +163,8 @@ NEXT_PUBLIC_SUPABASE_URL=<your_supabase_url>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<your_supabase_key>
 NEXT_PUBLIC_GOOGLE_CLIENT_ID=<your_google_client_id>
 GOOGLE_CLIENT_SECRET=<your_google_client_secret>
+NEXT_PUBLIC_LINKEDIN_CLIENT_ID=<your_linkedin_client_id>
+LINKEDIN_CLIENT_SECRET=<your_linkedin_client_secret>
 NEXTAUTH_SECRET=<generate_new_secret>
 NEXTAUTH_URL=https://your-vercel-domain.vercel.app
 ```
@@ -176,6 +199,13 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 2. Go to your OAuth 2.0 Client ID
 3. Add your Vercel deployment URL to authorized redirect URIs:
    - `https://<your-app-name>.vercel.app/api/auth/callback/google`
+
+### Update LinkedIn OAuth
+
+1. Return to LinkedIn Developer Portal
+2. Go to your app → "Auth" tab
+3. Add your Vercel deployment URL to authorized redirect URIs:
+   - `https://<your-app-name>.vercel.app/api/auth/callback/linkedin`
 
 ### Update Your App
 
