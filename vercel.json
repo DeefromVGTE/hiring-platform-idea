@@ -2,14 +2,5 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "env": {
-    "NEXTAUTH_URL": {
-      "description": "The deployment URL (Vercel will set this automatically)"
-    },
-    "NEXTAUTH_SECRET": {
-      "description": "Secret key for NextAuth (generate with: openssl rand -base64 32)",
-      "required": true
-    }
-  }
+  "framework": "nextjs"
 }
